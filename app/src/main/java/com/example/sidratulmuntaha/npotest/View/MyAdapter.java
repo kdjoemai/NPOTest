@@ -23,8 +23,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 
 
-
-
     public MyAdapter(Context context, List<DataObject> myDataset) {
         mContext = context;
         mDataObject = myDataset;
@@ -58,8 +56,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView textView;
 
         public TextView title, date;
         public LinearLayout layout;
@@ -68,7 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(View v) {
             super(v);
 
-            layout = itemView.findViewById(R.id.singleLayoutContainer);
+//            layout = itemView.findViewById(R.id.singleLayoutContainer);
 //            imageView = itemView.findViewById(R.id.imageView);
             title= itemView.findViewById(R.id.textViewTitle);
             date = itemView.findViewById(R.id.textViewDate);
