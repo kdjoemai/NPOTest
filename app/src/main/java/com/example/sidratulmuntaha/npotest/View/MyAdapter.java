@@ -22,23 +22,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private Context mContext;
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView textView;
 
-        public TextView title, date;
-        public ImageView imageView;
-        public LinearLayout layout;
-
-        public MyViewHolder(View v) {
-            super(v);
-
-            layout = itemView.findViewById(R.id.singleLayoutContainer);
-            imageView = itemView.findViewById(R.id.imageView);
-            title= itemView.findViewById(R.id.textViewTitle);
-            date = itemView.findViewById(R.id.textViewDate);
-        }
-    }
 
 
     public MyAdapter(Context context, List<DataObject> myDataset) {
@@ -51,18 +35,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                                                      int viewType) {
         // create a new view
         View view =  LayoutInflater.from(parent.getContext())
-                .inflate(android.R.layout.simple_list_item_1, parent, false);
+                .inflate(R.layout.singleview, parent, false);
 
         MyViewHolder viewHolder = new MyViewHolder(view);
         return viewHolder;
     }
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+
         final DataObject item = mDataObject.get(position);
 
-        holder.imageView.setImageDrawable(Drawable.createFromPath(item.getImg()));
+//        holder.imageView.setImageDrawable(Drawable.createFromPath(item.getImg()));
         holder.title.setText(item.getTitle());
         holder.date.setText(item.getDate());
     }
@@ -71,5 +54,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public int getItemCount() {
         return mDataObject.size();
+    }
+
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        // each data item is just a string in this case
+        public TextView textView;
+
+        public TextView title, date;
+        public LinearLayout layout;
+        //        public ImageView imageView;
+
+        public MyViewHolder(View v) {
+            super(v);
+
+            layout = itemView.findViewById(R.id.singleLayoutContainer);
+//            imageView = itemView.findViewById(R.id.imageView);
+            title= itemView.findViewById(R.id.textViewTitle);
+            date = itemView.findViewById(R.id.textViewDate);
+        }
     }
 }
